@@ -1,0 +1,71 @@
+# Data dictionary dengan username dan password
+data_mahasiswa = {
+    'JohnDoe': 'johns_password',
+    'JaneDoe': 'janes_password',
+    'MarkSmith': 'marks_password',
+    'EmilyJohnson': 'emilys_password',
+    'ChrisBrown': 'chris_password',
+    'LisaDavis': 'lisas_password',
+    'MichaelWilson': 'michaels_password',
+    'SarahTaylor': 'sarahs_password',
+    'DavidMiller': 'davids_password',
+    'EmmaMartinez': 'emmas_password'
+}
+
+def login(username, password):
+    if username in data_mahasiswa and data_mahasiswa[username] == password:
+        print("Selamat datang,", username)
+    else:
+        print("Data yang dimasukkan salah")
+
+# Contoh penggunaan
+username = input("Masukkan username: ")
+password = input("Masukkan password: ")
+login(username, password)
+
+#tugas ke 2
+# Data list pertama sebagai kunci (keys)
+keys = ['a', 'b', 'c', 'd']
+# Data list kedua sebagai nilai (values)
+values = [1, 2, 3, 4]
+
+# Menggabungkan dua list menjadi data dictionary
+data_dict = dict(zip(keys, values))
+
+print("Data Dictionary hasil penggabungan:")
+print(data_dict)
+
+#tugas ke 3
+# Data dictionary pertama 
+jadwalDasproIf2 = {
+    'Senin': {'Jam': '08:00 - 10:00', 'Mata Kuliah': 'Daspro'},
+    'Selasa': {'Jam': '08:00 - 10:00', 'Mata Kuliah': 'Daspro'},
+    'Rabu': {'Jam': '10:00 - 12:00', 'Mata Kuliah': 'PBO'},
+    'Kamis': {'Jam': '10:00 - 12:00', 'Mata Kuliah': 'PBO'},
+    'Jumat': {'Jam': '08:00 - 10:00', 'Mata Kuliah': 'Statistika'}
+}
+
+# Data dictionary kedua
+jadwalDasproIf3 = {
+    'Senin': {'Jam': '08:00 - 10:00', 'Mata Kuliah': 'Statistika'},
+    'Selasa': {'Jam': '08:00 - 10:00', 'Mata Kuliah': 'Statistika'},
+    'Rabu': {'Jam': '08:00 - 10:00', 'Mata Kuliah': 'Daspro'},
+    'Kamis': {'Jam': '08:00 - 10:00', 'Mata Kuliah': 'Daspro'},
+    'Jumat': {'Jam': '10:00 - 12:00', 'Mata Kuliah': 'PBO'}
+}
+
+# Menggabungkan dua data dictionary
+def gabung_dua_dict(dict1, dict2):
+    gabungan = dict2.copy()  # Salin data dari dict2
+    for key, value in dict1.items():
+        gabungan[key] = value  # Tambahkan data dari dict1
+    return gabungan
+
+# Contoh penggunaan
+gabungan_jadwal = gabung_dua_dict(jadwalDasproIf2, jadwalDasproIf3)
+
+print("Gabungan Jadwal Daspro If2 dan If3:")
+for hari, jadwal in gabungan_jadwal.items():
+    print(hari + ":")
+    print("  Jam:", jadwal['Jam'])
+    print("  Mata Kuliah:", jadwal['Mata Kuliah'])
